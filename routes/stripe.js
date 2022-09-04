@@ -1,14 +1,10 @@
 import * as dotenv from 'dotenv'
 dotenv.config()
-
 import express from 'express';
-
 import Stripe from "stripe";
-import transporter from './sendEmal.js';
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const router = express.Router();
-
 
 router.post('/', async (req, res) => {
 
@@ -46,8 +42,6 @@ router.post('/', async (req, res) => {
     try {
       res.send({ url: session.url})
       console.log(session.url);
-      
-      router.use(transporter)
       
     } catch (error) {
         console.log(error);
