@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
         from: APP_EMAIL,
         to: req.body.email,
         subject: 'Sending Email using Express-Salon-App',
-        text: 'Thank you for the Payemnt!'
+        text: 'Thank you for the Payment!'
       };
 
       transporter.sendMail(mailOptions, function(error, info){

@@ -14,11 +14,11 @@ router.post('/', async (req, res) => {
   let service = '';
 
   if(req.body.price === 20){
-    service = 'Hair'
+    service = 'Haircut'
   } else if (req.body.price === 25) {
-    service = 'Facial'
+    service = 'Hair Styling'
   } else {
-    service = 'CleanUp';
+    service = 'Makeup';
   }
 
     const session = await stripe.checkout.sessions.create({
