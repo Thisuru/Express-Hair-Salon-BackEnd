@@ -9,6 +9,11 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   
   try {
+      const { product, email } = req.body;
+      // console.log("Email Request body: ", req.body);
+      // console.log("Product Price: ", product.price);
+      // console.log("Product: ", product);
+
       const APP_EMAIL = process.env.APP_EMAIL 
       const APP_PASSWORD = process.env.APP_PASSWORD
 
@@ -23,8 +28,8 @@ router.post('/', async (req, res) => {
       var mailOptions = {
         from: APP_EMAIL,
         to: req.body.email,
-        subject: 'Sending Email using Express-Salon-App',
-        text: 'Thank you for the Payment!'
+        subject: 'Sending Email from Express-Salon-App',
+        text: `Thank you for the Payment of USD ${product.price}  for ${product.name} service.`
       };
 
       transporter.sendMail(mailOptions, function(error, info){
