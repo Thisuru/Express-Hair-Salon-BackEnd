@@ -46,6 +46,7 @@ router.post("/", async (req, res) => {
       }
     );
     console.log("Charge:", { charge });
+    console.log("Charger-----------: ", charge.receipt_url);
     status = "success";
     console.log("Email: ", token.email);
 
